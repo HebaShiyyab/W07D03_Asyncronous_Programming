@@ -4,14 +4,15 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "start":"main.js",
-    "dev":"nodemon main.js",
+    "start": "node main.js",
+    "dev": "nodemon main.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.21.1",
     "express": "^4.17.1"
   }
 }
