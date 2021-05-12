@@ -12,13 +12,24 @@ fs.readFile("./data.txt",(err,data)=>{
     };
 })
 
-fs.writeFile("./data.txt",(err,data)=>{
+fs.writeFile("./text.txt",`A new file has been created`,(err)=>{
     if(err){
-        console.log('Err')
-    }else{
-        console.log('heba')
-    }
+        throw err;
+        console.log('Err')}
+});
+axios.get("https://jsonplaceholder.typicode.com/posts/1/")
+.then((response)=>{
+console.log(response.data)
+}).catch((err)=>{
+    throw err 
+    console.log('ERR')
 })
+// const getPost = (id) => {
+//     if(id){
+
+//     }.then()
+//     return id.json('')
+//   };
 
 app.get("/",(req,res)=>{
     res.status(201);
