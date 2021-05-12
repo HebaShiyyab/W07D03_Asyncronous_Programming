@@ -49,7 +49,7 @@ const appendToFile = (data) => {
   });
 };
 const copyFile = (fileName) => {
-  fas.copyFile("data.txt", "copy_of_data.txt", (err) => {
+  fs.copyFile("data.txt", "copy_of_data.txt", (err) => {
     if (err) {
       throw err;
       console.log("HO");
@@ -83,20 +83,42 @@ const createPost = (post) => {
 createPost(post);
 
 const newPost = JSON.stringify({
-    // the post id that we want to update, change it when trying to update another post
-    id: 1,
-    title: "Updated Title",
-    body: "Updated body",
-    userId: 1,
-  });
-  
-  const updatePost = (postId, data) => {
-    // TODO: Your code here
-  };
-  
-  updatePost(1, newPost);
-  
-app.get("/", (req, res) => {
+  // the post id that we want to update, change it when trying to update another post
+  id: 1,
+  title: "Updated Title",
+  body: "Updated body",
+  userId: 1,
+});
+
+const updatePost = (postId, data) => {
+ axios.put(`https://jsonplaceholder.typicode.com/posts/${postId}`,data)
+ .then(function(response){
+     return response.data
+ }).catch(function(error){
+     throw error;
+     console.log('ERROR')
+ })
+};
+
+updatePost(1, newPost);
+
+const getUsers = async () => {
+  try {
+    const response = await axios.get(
+      "https://jsonplaceholder.typicode.com/posts"
+    );
+    return response.data;
+  } catch (err) {
+    throw err;
+    console.log("ERR");
+  }
+};
+const saveUsers = async() => {
+    try{
+        const 
+          }
+    }
+  app.get("/", (req, res) => {
   res.status(201);
   res.json("I am ready");
 });
