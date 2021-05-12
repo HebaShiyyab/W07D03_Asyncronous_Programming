@@ -115,9 +115,15 @@ const getUsers = async () => {
 };
 const saveUsers = async() => {
     try{
-        const 
+        const allUser = await getUsers();
+        fs.writeFile("user.txt", allUser() ,(err)=>{
+            if(err){ throw err
+             }
+        }) }catch(err){
+            throw err 
+        }
           }
-    }
+    
   app.get("/", (req, res) => {
   res.status(201);
   res.json("I am ready");
